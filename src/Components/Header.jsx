@@ -10,7 +10,7 @@ const Header = () => {
         <NavLink to="/all-movies">All Movies</NavLink>
       </li>
       <li>
-        <NavLink to="/all-movie">Add Movie</NavLink>
+        <NavLink to="/add-movie">Add Movie</NavLink>
       </li>
       <li>
         <NavLink to="/my-favorite">My Favorite</NavLink>
