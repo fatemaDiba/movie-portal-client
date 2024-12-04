@@ -1,6 +1,41 @@
-import { Link } from "react-router-dom";
+import { useContext } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { AuthContext } from "../Auth/AuthProvider";
+import { toast } from "react-toastify";
 
 const LogIn = () => {
+  const { oldUser } = useContext(AuthContext);
+  const navigate = useNavigate();
+
+  const handleLogInBtn = (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const email = form.email.value;
+    const password = form.password.value;
+
+    oldUser(email, password)
+      .then((res) => {
+        console.log(res.user);
+        e.target.reset();
+        navigate("/");
+      })
+      .catch((error) => {
+        console.log(error.message);
+      });
+  };
+
+  const handleGoogleBtn = () => {
+    signInWithGoogle()
+      .then((res) => {
+        toast.success("Successfully logged in user with google");
+        // navigate(location?.state ? location.state : "/");
+        navigate("/");
+      })
+      .catch((error) => {
+        toast.error("Something went wrong");
+      });
+  };
+
   return (
     <div>
       <div className="container md:w-11/12 mx-auto">
@@ -9,7 +44,7 @@ const LogIn = () => {
             <h2 className="font-bold text-center text-base md:text-xl">
               LogIn Now
             </h2>
-            <form>
+            <form onSubmit={handleLogInBtn}>
               <div className="form-control">
                 <label className="label">
                   <span className="label-text">Email</span>
@@ -47,7 +82,10 @@ const LogIn = () => {
             </form>
             <div>
               <p className="text-sm mb-2">LogIn with google</p>
-              <button className="btn bg-slate-200 hover:bg-slate-400 w-full">
+              <button
+                className="btn bg-slate-200 hover:bg-slate-400 w-full"
+                onClick={handleGoogleBtn}
+              >
                 Google
               </button>
             </div>

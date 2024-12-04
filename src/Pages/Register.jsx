@@ -1,6 +1,50 @@
-import { Link } from "react-router-dom";
+import { useContext } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { AuthContext } from "../Auth/AuthProvider";
+import { toast } from "react-toastify";
 
 const Register = () => {
+  const { newUser } = useContext(AuthContext);
+  const navigate = useNavigate();
+
+  const handleRegisterBtn = (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const name = form.name.value;
+    const email = form.email.value;
+    const password = form.password.value;
+    const photoUrl = form.photo.value;
+
+    const regex = /^(?=.*[a-z])(?=.*[A-Z]).{6,}$/;
+    if (!password.match(regex)) {
+      toast.error("Please give A Valid Password ");
+      return;
+    }
+
+    newUser(email, password)
+      .then((res) => {
+        console.log(res.user);
+        e.target.reset();
+        navigate("/");
+        // database er kaj baki
+      })
+      .catch((error) => {
+        console.log(error.message);
+      });
+  };
+
+  const handleGoogleBtn = () => {
+    signInWithGoogle()
+      .then((res) => {
+        toast.success("Successfully registered with google");
+        // navigate(location?.state ? location.state : "/");
+        navigate("/");
+      })
+      .catch((error) => {
+        toast.error("Something went wrong");
+      });
+  };
+
   return (
     <div>
       <div className="container md:w-11/12 mx-auto">
@@ -9,7 +53,7 @@ const Register = () => {
             <h2 className="font-bold text-center text-base md:text-xl">
               Register Now
             </h2>
-            <form>
+            <form onSubmit={handleRegisterBtn}>
               <div className="form-control">
                 <label className="label">
                   <span className="label-text">Name</span>
@@ -71,7 +115,10 @@ const Register = () => {
             </form>
             <div>
               <p className="text-sm mb-2">Register with google</p>
-              <button className="btn bg-slate-200 hover:bg-slate-400 w-full">
+              <button
+                onClick={handleGoogleBtn}
+                className="btn bg-slate-200 hover:bg-slate-400 w-full"
+              >
                 Google
               </button>
             </div>
