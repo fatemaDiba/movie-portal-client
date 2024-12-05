@@ -39,7 +39,7 @@ const Features = () => {
           </h2>
           <p className="text-sm md:text-base text-center">
             Welcome to instant gratification at its best. Watch now without any
-            payment or subscription and end the search for free movie websites.
+            payment or subscription.
           </p>
         </div>
         <div className="justify-items-center">
@@ -51,7 +51,7 @@ const Features = () => {
           <h2 className="text-lg md:text-xl font-bold mb-3">Device-Friendly</h2>
           <p className="text-sm md:text-base text-center">
             Stream the good stuff from your favorite devices including Apple,
-            Android, Smart TVs and more.
+            Tabs Android, Smart TVs and more.
           </p>
         </div>
       </div>
