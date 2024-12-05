@@ -2,10 +2,11 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-.font-sora {
-  font-family: "Sora", serif;
-}
+
 .active {
   text-decoration: underline;
   font-weight: bold;
+}
+.body {
+  font-family: "Sora", serif;
 }

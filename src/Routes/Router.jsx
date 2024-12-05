@@ -10,6 +10,7 @@ import AddMovie from "../privateRoutes/AddMovie";
 import MyProfile from "../privateRoutes/MyProfile";
 import PrivateReg from "../privateRoutes/Private/PrivateReg";
 import PrivateRoute from "../privateRoutes/Private/PrivateRoute";
+import MovieDetails from "../Pages/Details/MovieDetails";
 
 const router = createBrowserRouter([
   {
@@ -58,6 +59,14 @@ const router = createBrowserRouter([
         element: (
           <PrivateRoute>
             <MyProfile></MyProfile>
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/movie-details",
+        element: (
+          <PrivateRoute>
+            <MovieDetails></MovieDetails>
           </PrivateRoute>
         ),
       },

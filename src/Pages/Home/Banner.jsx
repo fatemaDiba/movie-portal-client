@@ -1,13 +1,13 @@
 const Banner = () => {
   return (
-    <div className=" mx-auto">
+    <div className="mb-20 mx-auto">
       <div className="relative w-full h-[45vh] md:h-[75vh]">
         <div className="absolute inset-0 z-10 flex flex-col items-center justify-center text-center text-white p-4">
           <div className="bg-black/30 backdrop-blur-md p-6 rounded-lg w-9/12 md:max-w-4xl space-y-4">
             <h1 className="text-xl md:text-4xl font-bold">
               Free Movies to Watch, Anytime Anywhere.
             </h1>
-            <p className="text-base md:text-xl  md:w-[75%] mx-auto">
+            <p className="text-base md:text-  md:w-[75%] mx-auto">
               The search is over!! Let Movie Portal help you find the perfect
               movie to watch tonight for free.
             </p>
