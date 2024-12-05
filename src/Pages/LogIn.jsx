@@ -4,7 +4,7 @@ import { AuthContext } from "../Auth/AuthProvider";
 import { toast } from "react-toastify";
 
 const LogIn = () => {
-  const { oldUser } = useContext(AuthContext);
+  const { oldUser, signInWithGoogle } = useContext(AuthContext);
   const navigate = useNavigate();
 
   const handleLogInBtn = (e) => {

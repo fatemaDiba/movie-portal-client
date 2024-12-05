@@ -7,6 +7,9 @@ import AllMovies from "../Pages/AllMovies";
 import Root from "../layouts/Root";
 import MyFav from "../privateRoutes/MyFav";
 import AddMovie from "../privateRoutes/AddMovie";
+import MyProfile from "../privateRoutes/MyProfile";
+import PrivateReg from "../privateRoutes/Private/PrivateReg";
+import PrivateRoute from "../privateRoutes/Private/PrivateRoute";
 
 const router = createBrowserRouter([
   {
@@ -24,7 +27,11 @@ const router = createBrowserRouter([
       },
       {
         path: "/register",
-        element: <Register></Register>,
+        element: (
+          <PrivateReg>
+            <Register></Register>
+          </PrivateReg>
+        ),
       },
       {
         path: "/all-movies",
@@ -32,11 +39,27 @@ const router = createBrowserRouter([
       },
       {
         path: "/add-movie",
-        element: <AddMovie></AddMovie>,
+        element: (
+          <PrivateRoute>
+            <AddMovie></AddMovie>
+          </PrivateRoute>
+        ),
       },
       {
         path: "/my-favorite",
-        element: <MyFav></MyFav>,
+        element: (
+          <PrivateRoute>
+            <MyFav></MyFav>
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/my-profile",
+        element: (
+          <PrivateRoute>
+            <MyProfile></MyProfile>
+          </PrivateRoute>
+        ),
       },
     ],
   },

@@ -1,6 +1,23 @@
-import { Link, NavLink } from "react-router-dom";
-
+import { useContext } from "react";
+import { Link, NavLink, useNavigate } from "react-router-dom";
+import { AuthContext } from "../Auth/AuthProvider";
+import { toast } from "react-toastify";
 const Header = () => {
+  const { user, logOutUser } = useContext(AuthContext);
+  const navigate = useNavigate();
+
+  const handleLogOutBtn = (e) => {
+    e.preventDefault();
+    logOutUser()
+      .then((res) => {
+        toast.success("User Successfully Logged Out");
+        navigate("/");
+      })
+      .catch((error) => {
+        toast.error("Something went wrong");
+      });
+  };
+
   const navList = (
     <>
       <li>
@@ -9,12 +26,21 @@ const Header = () => {
       <li>
         <NavLink to="/all-movies">All Movies</NavLink>
       </li>
-      <li>
-        <NavLink to="/add-movie">Add Movie</NavLink>
-      </li>
-      <li>
-        <NavLink to="/my-favorite">My Favorite</NavLink>
-      </li>
+      {user && (
+        <li>
+          <NavLink to="/add-movie">Add Movie</NavLink>
+        </li>
+      )}
+      {user && (
+        <li>
+          <NavLink to="/my-favorite">My Favorite</NavLink>
+        </li>
+      )}
+      {user && (
+        <li>
+          <NavLink to="/my-profile">My profile</NavLink>
+        </li>
+      )}
     </>
   );
 
@@ -58,12 +84,29 @@ const Header = () => {
           </div>
 
           <div className="navbar-end">
-            <Link
-              to="/login"
-              className="btn bg-slate-200 hover:bg-slate-400 ml-3"
-            >
-              LogIn
-            </Link>
+            {user ? (
+              <button
+                onClick={handleLogOutBtn}
+                className="btn bg-slate-200 hover:bg-slate-400 ml-3"
+              >
+                Log Out
+              </button>
+            ) : (
+              <div>
+                <Link
+                  to="/login"
+                  className="btn bg-slate-200 hover:bg-slate-400 ml-3"
+                >
+                  LogIn
+                </Link>
+                <Link
+                  to="/register"
+                  className="btn bg-slate-200 hover:bg-slate-400 ml-3"
+                >
+                  Register
+                </Link>
+              </div>
+            )}
           </div>
         </div>
       </div>

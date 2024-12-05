@@ -4,7 +4,7 @@ import { AuthContext } from "../Auth/AuthProvider";
 import { toast } from "react-toastify";
 
 const Register = () => {
-  const { newUser } = useContext(AuthContext);
+  const { newUser, signInWithGoogle } = useContext(AuthContext);
   const navigate = useNavigate();
 
   const handleRegisterBtn = (e) => {
