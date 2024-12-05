@@ -1,10 +1,18 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import { AuthContext } from "../Auth/AuthProvider";
 import { toast } from "react-toastify";
 const Header = () => {
+  const [showUserName, setShowUserName] = useState(false);
   const { user, logOutUser } = useContext(AuthContext);
   const navigate = useNavigate();
+
+  const handleShowUserName = () => {
+    setShowUserName(true);
+  };
+  const handleRemoveUserName = () => {
+    setShowUserName(false);
+  };
 
   const handleLogOutBtn = (e) => {
     e.preventDefault();
@@ -84,6 +92,30 @@ const Header = () => {
           </div>
 
           <div className="navbar-end">
+            {user && (
+              <div className="flex gap-4 ">
+                <div
+                  className={` text-sm  ${showUserName ? "block" : "hidden"}`}
+                >
+                  {user?.displayName}
+                </div>
+                <div
+                  onMouseEnter={handleShowUserName}
+                  onMouseLeave={handleRemoveUserName}
+                  tabIndex={0}
+                  role="button"
+                  className="btn btn-ghost btn-circle avatar"
+                >
+                  <div className="w-10 rounded-full relative">
+                    <img
+                      alt="Tailwind CSS Navbar component"
+                      src={user?.photoURL}
+                    />
+                  </div>
+                </div>
+              </div>
+            )}
+
             {user ? (
               <button
                 onClick={handleLogOutBtn}
