@@ -106,17 +106,18 @@ const AddMovie = () => {
                 required
                 name="genre"
               >
-                <option value="" disabled selected>
+                <option value="" defaultValue>
                   Genre
                 </option>
                 <option>Horror</option>
                 <option>Comedy</option>
                 <option>Drama</option>
-                <option>Romance</option>
+                <option>Animation</option>
                 <option>Actions</option>
                 <option>Adventure</option>
                 <option>Thriller</option>
                 <option>Science Fiction</option>
+                <option>Family</option>
               </select>
               <div className="form-control">
                 <label className="label">
@@ -131,13 +132,14 @@ const AddMovie = () => {
                 />
               </div>
               <select
-                className="select select-bordered w-full"
+                className="select select-bordered w-full mb-3"
                 required
                 name="year"
               >
-                <option value="" disabled selected>
+                <option value="" defaultValue>
                   Release Year
                 </option>
+
                 <option>2019</option>
                 <option>2020</option>
                 <option>2021</option>
@@ -146,17 +148,22 @@ const AddMovie = () => {
                 <option>2024</option>
               </select>
 
-              <ReactStars
-                count={5}
-                onChange={ratingChanged}
-                size={24}
-                activeColor="#ffd700"
-              />
+              <div className="flex items-center gap-3">
+                <span className="text-sm">Rating: </span>
+                <ReactStars
+                  count={5}
+                  onChange={ratingChanged}
+                  size={30}
+                  activeColor="#ffd700"
+                  value={rating}
+                  isHalf={true}
+                />
+              </div>
 
               <textarea
                 placeholder="Summery"
                 name="summary"
-                className="textarea textarea-bordered textarea-base w-full"
+                className="textarea textarea-bordered textarea-base w-full mt-3"
                 required
               ></textarea>
 

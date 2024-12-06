@@ -2,7 +2,7 @@ import { useContext, useState } from "react";
 import { Helmet } from "react-helmet-async";
 import ReactStars from "react-rating-stars-component";
 import { AuthContext } from "../Auth/AuthProvider";
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 
 const UpdateMovie = () => {
@@ -11,6 +11,7 @@ const UpdateMovie = () => {
   const { _id, poster, title, summary, year, duration, rating, genre } =
     movieData;
   const [updatedRating, setUpdatedRating] = useState(rating);
+  const navigate = useNavigate();
 
   const ratingChanged = (newRating) => {
     setUpdatedRating(newRating);
@@ -66,7 +67,7 @@ const UpdateMovie = () => {
       .then((data) => {
         console.log(data);
         toast.success("Successfully Updated Movie");
-        form.reset();
+        navigate("/");
       });
   };
 
@@ -114,17 +115,18 @@ const UpdateMovie = () => {
                 defaultValue={genre}
                 name="genre"
               >
-                <option value="" disabled selected>
+                <option value="" disabled>
                   Genre
                 </option>
                 <option>Horror</option>
                 <option>Comedy</option>
                 <option>Drama</option>
-                <option>Romance</option>
+                <option>Animation</option>
                 <option>Actions</option>
                 <option>Adventure</option>
                 <option>Thriller</option>
                 <option>Science Fiction</option>
+                <option>Family</option>
               </select>
               <div className="form-control">
                 <label className="label">
@@ -145,7 +147,7 @@ const UpdateMovie = () => {
                 name="year"
                 defaultValue={year}
               >
-                <option value="" disabled selected>
+                <option value="" disabled>
                   Release Year
                 </option>
                 <option>2019</option>
@@ -162,6 +164,7 @@ const UpdateMovie = () => {
                 size={24}
                 activeColor="#ffd700"
                 value={updatedRating}
+                isHalf={true}
               />
 
               <textarea

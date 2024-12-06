@@ -6,7 +6,7 @@ const AllMovies = () => {
   const data = useLoaderData();
   console.log(data);
   return (
-    <div className="container w-8/12 mx-auto mb-20 mt-10">
+    <div className="container w-9/12 mx-auto mb-20 mt-10">
       <Helmet>
         <title>All Movies-Movie Portal</title>
       </Helmet>
