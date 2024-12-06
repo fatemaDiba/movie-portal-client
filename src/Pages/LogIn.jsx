@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../Auth/AuthProvider";
 import { toast } from "react-toastify";
+import { Helmet } from "react-helmet-async";
 
 const LogIn = () => {
   const { oldUser, signInWithGoogle } = useContext(AuthContext);
@@ -38,6 +39,9 @@ const LogIn = () => {
 
   return (
     <div>
+      <Helmet>
+        <title>LogIn-Movie Portal</title>
+      </Helmet>
       <div className="container md:w-11/12 mx-auto">
         <div className="card bg-base-100 w-[70%] md:w-[50%] mx-auto shrink-0 shadow-2xl">
           <div className="card-body">

@@ -41,7 +41,7 @@ const Header = () => {
       )}
       {user && (
         <li>
-          <NavLink to="/my-favorite">My Favorite</NavLink>
+          <NavLink to="/my-favorites">My Favorites</NavLink>
         </li>
       )}
       {user && (

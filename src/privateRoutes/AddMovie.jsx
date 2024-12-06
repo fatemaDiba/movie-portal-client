@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet-async";
 import ReactStars from "react-rating-stars-component";
 const AddMovie = () => {
   const ratingChanged = (newRating) => {
@@ -29,6 +30,9 @@ const AddMovie = () => {
 
   return (
     <div>
+      <Helmet>
+        <title>Add Movie-Movie Portal</title>
+      </Helmet>
       <div className="container md:w-11/12 mx-auto mb-20">
         <div className="card bg-base-100 w-[70%] md:w-[50%] mx-auto shrink-0 shadow-2xl">
           <div className="card-body">
