@@ -113,6 +113,10 @@ const AddMovie = () => {
                 <option>Comedy</option>
                 <option>Drama</option>
                 <option>Romance</option>
+                <option>Actions</option>
+                <option>Adventure</option>
+                <option>Thriller</option>
+                <option>Science Fiction</option>
               </select>
               <div className="form-control">
                 <label className="label">
@@ -134,6 +138,7 @@ const AddMovie = () => {
                 <option value="" disabled selected>
                   Release Year
                 </option>
+                <option>2019</option>
                 <option>2020</option>
                 <option>2021</option>
                 <option>2022</option>

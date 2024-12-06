@@ -3,15 +3,17 @@ import { Helmet } from "react-helmet-async";
 import ReactStars from "react-rating-stars-component";
 import { AuthContext } from "../Auth/AuthProvider";
 import { useLoaderData } from "react-router-dom";
+import { toast } from "react-toastify";
 
 const UpdateMovie = () => {
-  const [rating, setRating] = useState(0);
   const { user } = useContext(AuthContext);
   const movieData = useLoaderData();
-  const { _id } = movieData;
+  const { _id, poster, title, summary, year, duration, rating, genre } =
+    movieData;
+  const [updatedRating, setUpdatedRating] = useState(rating);
 
   const ratingChanged = (newRating) => {
-    setRating(newRating);
+    setUpdatedRating(newRating);
   };
 
   const handleUpdateBtn = (e) => {
@@ -33,7 +35,7 @@ const UpdateMovie = () => {
       toast.error("please give duration more than 60");
       return;
     }
-    if (rating < 1) {
+    if (updatedRating < 1) {
       toast.error("Please give a rating!");
       return;
     }
@@ -49,14 +51,14 @@ const UpdateMovie = () => {
       duration,
       year,
       summary,
-      rating,
+      updatedRating,
       userEmail,
     };
 
     fetch(`http://localhost:5000/all-movies/${_id}`, {
       method: "PUT",
       headers: {
-        "content-type": "application/json",
+        "Content-Type": "application/json",
       },
       body: JSON.stringify(movieUpdateData),
     })
@@ -89,6 +91,7 @@ const UpdateMovie = () => {
                   name="poster"
                   placeholder="poster url"
                   className="input input-bordered"
+                  defaultValue={poster}
                   required
                 />
               </div>
@@ -101,12 +104,14 @@ const UpdateMovie = () => {
                   name="title"
                   placeholder="movie title"
                   className="input input-bordered mb-5"
+                  defaultValue={title}
                   required
                 />
               </div>
               <select
                 className="select select-bordered w-full"
                 required
+                defaultValue={genre}
                 name="genre"
               >
                 <option value="" disabled selected>
@@ -116,6 +121,10 @@ const UpdateMovie = () => {
                 <option>Comedy</option>
                 <option>Drama</option>
                 <option>Romance</option>
+                <option>Actions</option>
+                <option>Adventure</option>
+                <option>Thriller</option>
+                <option>Science Fiction</option>
               </select>
               <div className="form-control">
                 <label className="label">
@@ -125,6 +134,7 @@ const UpdateMovie = () => {
                   type="number"
                   name="duration"
                   placeholder="duration"
+                  defaultValue={duration}
                   required
                   className="input input-bordered mb-5"
                 />
@@ -133,10 +143,12 @@ const UpdateMovie = () => {
                 className="select select-bordered w-full"
                 required
                 name="year"
+                defaultValue={year}
               >
                 <option value="" disabled selected>
                   Release Year
                 </option>
+                <option>2019</option>
                 <option>2020</option>
                 <option>2021</option>
                 <option>2022</option>
@@ -149,12 +161,14 @@ const UpdateMovie = () => {
                 onChange={ratingChanged}
                 size={24}
                 activeColor="#ffd700"
+                value={updatedRating}
               />
 
               <textarea
                 placeholder="Summery"
                 name="summary"
                 className="textarea textarea-bordered textarea-base w-full"
+                defaultValue={summary}
                 required
               ></textarea>
 
