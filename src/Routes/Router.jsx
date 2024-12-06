@@ -7,10 +7,12 @@ import AllMovies from "../Pages/AllMovies";
 import Root from "../layouts/Root";
 import MyFav from "../privateRoutes/MyFav";
 import AddMovie from "../privateRoutes/AddMovie";
-import MyProfile from "../privateRoutes/MyProfile";
+
 import PrivateReg from "../privateRoutes/Private/PrivateReg";
 import PrivateRoute from "../privateRoutes/Private/PrivateRoute";
 import MovieDetails from "../Pages/Details/MovieDetails";
+import Voucher from "../privateRoutes/Voucher";
+import UpdateMovie from "../privateRoutes/UpdateMovie";
 
 const router = createBrowserRouter([
   {
@@ -21,6 +23,7 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home></Home>,
+        loader: () => fetch("http://localhost:5000/all-movies"),
       },
       {
         path: "/login",
@@ -41,6 +44,7 @@ const router = createBrowserRouter([
       {
         path: "/all-movies",
         element: <AllMovies></AllMovies>,
+        loader: () => fetch("http://localhost:5000/all-movies"),
       },
       {
         path: "/add-movie",
@@ -59,18 +63,24 @@ const router = createBrowserRouter([
         ),
       },
       {
-        path: "/my-profile",
-        element: (
-          <PrivateRoute>
-            <MyProfile></MyProfile>
-          </PrivateRoute>
-        ),
+        path: "/voucher",
+        element: <Voucher></Voucher>,
       },
       {
-        path: "/movie-details",
+        path: "/movie-details/:id",
         element: (
           <PrivateRoute>
             <MovieDetails></MovieDetails>
+          </PrivateRoute>
+        ),
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/all-movies/${params.id}`),
+      },
+      {
+        path: "/update",
+        element: (
+          <PrivateRoute>
+            <UpdateMovie></UpdateMovie>
           </PrivateRoute>
         ),
       },

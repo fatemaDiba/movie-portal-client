@@ -44,11 +44,9 @@ const Header = () => {
           <NavLink to="/my-favorites">My Favorites</NavLink>
         </li>
       )}
-      {user && (
-        <li>
-          <NavLink to="/my-profile">My profile</NavLink>
-        </li>
-      )}
+      <li>
+        <NavLink to="/voucher">Voucher</NavLink>
+      </li>
     </>
   );
 

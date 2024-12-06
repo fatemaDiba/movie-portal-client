@@ -1,7 +1,9 @@
-import { Link } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 import Card from "./Card";
 
 const MoviesCard = () => {
+  const moviesData = useLoaderData();
+  console.log(moviesData);
   return (
     <div className="container w-10/12 mx-auto mb-20">
       <div className="flex flex-col justify-center items-center mb-14">
@@ -13,12 +15,9 @@ const MoviesCard = () => {
         </p>
       </div>
       <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
-        <Card></Card>
-        <Card></Card>
-        <Card></Card>
-        <Card></Card>
-        <Card></Card>
-        <Card></Card>
+        {moviesData.map((item) => {
+          return <Card key={item._id} item={item}></Card>;
+        })}
       </div>
       <div className="text-center mt-12">
         <Link

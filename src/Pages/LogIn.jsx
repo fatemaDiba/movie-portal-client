@@ -1,12 +1,13 @@
 import { useContext } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../Auth/AuthProvider";
 import { toast } from "react-toastify";
 import { Helmet } from "react-helmet-async";
 
 const LogIn = () => {
-  const { oldUser, signInWithGoogle } = useContext(AuthContext);
+  const { oldUser, signInWithGoogle, setLoading } = useContext(AuthContext);
   const navigate = useNavigate();
+  const location = useLocation();
 
   const handleLogInBtn = (e) => {
     e.preventDefault();
@@ -17,11 +18,12 @@ const LogIn = () => {
     oldUser(email, password)
       .then((res) => {
         console.log(res.user);
-        e.target.reset();
-        navigate("/");
+        form.reset();
+        navigate(location?.state ? location.state : "/");
       })
       .catch((error) => {
-        console.log(error.message);
+        toast.error("Something went wrong");
+        setLoading(false);
       });
   };
 
@@ -29,11 +31,11 @@ const LogIn = () => {
     signInWithGoogle()
       .then((res) => {
         toast.success("Successfully logged in user with google");
-        // navigate(location?.state ? location.state : "/");
-        navigate("/");
+        navigate(location?.state ? location.state : "/");
       })
       .catch((error) => {
         toast.error("Something went wrong");
+        setLoading(false);
       });
   };
 

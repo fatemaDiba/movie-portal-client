@@ -1,10 +1,9 @@
-import { Helmet } from "react-helmet-async";
-import { toast } from "react-toastify";
-import ReactStars from "react-rating-stars-component";
 import { useContext, useState } from "react";
+import { Helmet } from "react-helmet-async";
+import ReactStars from "react-rating-stars-component";
 import { AuthContext } from "../Auth/AuthProvider";
 
-const AddMovie = () => {
+const UpdateMovie = () => {
   const [rating, setRating] = useState(0);
   const { user } = useContext(AuthContext);
 
@@ -12,7 +11,7 @@ const AddMovie = () => {
     setRating(newRating);
   };
 
-  const handleAddBtn = (e) => {
+  const handleUpdateBtn = (e) => {
     e.preventDefault();
     const form = e.target;
     const poster = form.poster.value;
@@ -39,6 +38,7 @@ const AddMovie = () => {
       toast.error("Please give a Summary at least 10 character!");
       return;
     }
+
     const movieAddFormData = {
       poster,
       title,
@@ -51,7 +51,7 @@ const AddMovie = () => {
     };
 
     fetch("http://localhost:5000/add-movie", {
-      method: "POST",
+      method: "PUT",
       headers: {
         "content-type": "application/json",
       },
@@ -60,7 +60,7 @@ const AddMovie = () => {
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
-        toast.success("Successfully Added Movie");
+        toast.success("Successfully Updated Movie");
         form.reset();
       });
   };
@@ -68,7 +68,7 @@ const AddMovie = () => {
   return (
     <div>
       <Helmet>
-        <title>Add Movie-Movie Portal</title>
+        <title>Update Movie-Movie Portal</title>
       </Helmet>
       <div className="container md:w-11/12 mx-auto mb-20">
         <div className="card bg-base-100 w-[70%] md:w-[50%] mx-auto shrink-0 shadow-2xl">
@@ -76,7 +76,7 @@ const AddMovie = () => {
             <h2 className="font-bold text-center text-base md:text-xl">
               Add Your Movie Information Now
             </h2>
-            <form onSubmit={handleAddBtn}>
+            <form onSubmit={handleUpdateBtn}>
               <div className="form-control">
                 <label className="label">
                   <span className="label-text">Movie Poster</span>
@@ -157,7 +157,7 @@ const AddMovie = () => {
 
               <div className="form-control mt-6 mb-4">
                 <button className="btn bg-purple-500 hover:bg-purple-600 text-white">
-                  Add Movie
+                  Update
                 </button>
               </div>
             </form>
@@ -168,4 +168,4 @@ const AddMovie = () => {
   );
 };
 
-export default AddMovie;
+export default UpdateMovie;

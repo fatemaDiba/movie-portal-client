@@ -1,12 +1,13 @@
 import { useContext } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../Auth/AuthProvider";
 import { toast } from "react-toastify";
 import { Helmet } from "react-helmet-async";
 
 const Register = () => {
-  const { newUser, signInWithGoogle } = useContext(AuthContext);
+  const { newUser, signInWithGoogle, setLoading } = useContext(AuthContext);
   const navigate = useNavigate();
+  const location = useLocation();
 
   const handleRegisterBtn = (e) => {
     e.preventDefault();
@@ -25,12 +26,14 @@ const Register = () => {
     newUser(email, password)
       .then((res) => {
         console.log(res.user);
-        e.target.reset();
-        navigate("/");
+        form.reset();
+        toast.success("Successfully registered user");
+        navigate(location?.state ? location.state : "/");
         // database er kaj baki
       })
       .catch((error) => {
-        console.log(error.message);
+        toast.error("Something went wrong");
+        setLoading(false);
       });
   };
 
@@ -38,11 +41,11 @@ const Register = () => {
     signInWithGoogle()
       .then((res) => {
         toast.success("Successfully registered with google");
-        // navigate(location?.state ? location.state : "/");
-        navigate("/");
+        navigate(location?.state ? location.state : "/");
       })
       .catch((error) => {
         toast.error("Something went wrong");
+        setLoading(false);
       });
   };
 
