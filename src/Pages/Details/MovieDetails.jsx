@@ -63,7 +63,7 @@ const MovieDetails = () => {
                 <button className="btn btn-primary">
                   Add To Favorite <FaHeartCirclePlus className="text-lg" />
                 </button>
-                <Link to="/update" className="btn btn-primary">
+                <Link to={`/update/${_id}`} className="btn btn-primary">
                   Update Movie <RxUpdate className="text-lg" />
                 </Link>
               </div>

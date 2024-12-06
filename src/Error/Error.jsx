@@ -7,7 +7,7 @@ const Error = () => {
       <Helmet>
         <title>Error-Movie Portal</title>
       </Helmet>
-      <section className="relative h-screen z-10 bg-orange-500 py-[120px]">
+      <section className="relative h-screen z-10 bg-purple-500 py-[120px]">
         <div className="container mx-auto">
           <div className="-mx-4 flex">
             <div className="w-full px-4">

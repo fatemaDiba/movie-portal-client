@@ -2,10 +2,13 @@ import { useContext, useState } from "react";
 import { Helmet } from "react-helmet-async";
 import ReactStars from "react-rating-stars-component";
 import { AuthContext } from "../Auth/AuthProvider";
+import { useLoaderData } from "react-router-dom";
 
 const UpdateMovie = () => {
   const [rating, setRating] = useState(0);
   const { user } = useContext(AuthContext);
+  const movieData = useLoaderData();
+  const { _id } = movieData;
 
   const ratingChanged = (newRating) => {
     setRating(newRating);
@@ -39,7 +42,7 @@ const UpdateMovie = () => {
       return;
     }
 
-    const movieAddFormData = {
+    const movieUpdateData = {
       poster,
       title,
       genre,
@@ -50,12 +53,12 @@ const UpdateMovie = () => {
       userEmail,
     };
 
-    fetch("http://localhost:5000/add-movie", {
+    fetch(`http://localhost:5000/all-movies/${_id}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",
       },
-      body: JSON.stringify(movieAddFormData),
+      body: JSON.stringify(movieUpdateData),
     })
       .then((res) => res.json())
       .then((data) => {
@@ -74,7 +77,7 @@ const UpdateMovie = () => {
         <div className="card bg-base-100 w-[70%] md:w-[50%] mx-auto shrink-0 shadow-2xl">
           <div className="card-body">
             <h2 className="font-bold text-center text-base md:text-xl">
-              Add Your Movie Information Now
+              Update Your Movie Information Now
             </h2>
             <form onSubmit={handleUpdateBtn}>
               <div className="form-control">

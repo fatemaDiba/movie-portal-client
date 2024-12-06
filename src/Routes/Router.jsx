@@ -7,12 +7,11 @@ import AllMovies from "../Pages/AllMovies";
 import Root from "../layouts/Root";
 import MyFav from "../privateRoutes/MyFav";
 import AddMovie from "../privateRoutes/AddMovie";
-
 import PrivateReg from "../privateRoutes/Private/PrivateReg";
 import PrivateRoute from "../privateRoutes/Private/PrivateRoute";
 import MovieDetails from "../Pages/Details/MovieDetails";
-import Voucher from "../privateRoutes/Voucher";
 import UpdateMovie from "../privateRoutes/UpdateMovie";
+import Reviews from "../Pages/Home/Reviews";
 
 const router = createBrowserRouter([
   {
@@ -62,10 +61,7 @@ const router = createBrowserRouter([
           </PrivateRoute>
         ),
       },
-      {
-        path: "/voucher",
-        element: <Voucher></Voucher>,
-      },
+
       {
         path: "/movie-details/:id",
         element: (
@@ -77,12 +73,18 @@ const router = createBrowserRouter([
           fetch(`http://localhost:5000/all-movies/${params.id}`),
       },
       {
-        path: "/update",
+        path: "/update/:id",
         element: (
           <PrivateRoute>
             <UpdateMovie></UpdateMovie>
           </PrivateRoute>
         ),
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/all-movies/${params.id}`),
+      },
+      {
+        path: "/reviews",
+        element: <Reviews></Reviews>,
       },
     ],
   },
