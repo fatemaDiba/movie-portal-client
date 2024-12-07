@@ -1,7 +1,8 @@
-import { Link } from "react-router-dom";
+import { RiDeleteBin6Fill } from "react-icons/ri";
 
-const Card = ({ item }) => {
+const FavCard = ({ item, handleDeleteFavBtn }) => {
   const { _id, poster, title, genre, duration, year, rating } = item;
+
   return (
     <div className="card bg-base-100 shadow-xl">
       <figure>
@@ -21,17 +22,18 @@ const Card = ({ item }) => {
         <p className="font-semibold">
           Rating: <span className="font-normal"> {rating}</span>
         </p>
-        <div className="card-actions">
-          <Link
-            to={`/movie-details/${_id}`}
-            className="border-0 bg-gradient-to-b from-purple-400 to-pink-400 font-semibold text-white px-4 py-2 rounded-lg shadow-md hover:shadow-lg"
+        <div className="flex flex-wrap">
+          <button
+            onClick={() => handleDeleteFavBtn(_id)}
+            className="btn bg-gradient-to-b from-purple-400 to-pink-400 text-white text-sm"
           >
-            See Details
-          </Link>
+            Delete Favorite
+            <RiDeleteBin6Fill className="text-sm"></RiDeleteBin6Fill>
+          </button>
         </div>
       </div>
     </div>
   );
 };
 
-export default Card;
+export default FavCard;

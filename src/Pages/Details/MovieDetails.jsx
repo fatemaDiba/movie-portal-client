@@ -61,22 +61,39 @@ const MovieDetails = () => {
           <div className="flex flex-col lg:flex-row gap-10 items-center">
             <img src={poster} className="w-[50%] rounded-lg shadow-2xl" />
             <div className="space-y-3">
-              <h1 className="text-xl md:text-3xl font-bold mb-5">{title}</h1>
+              <h1 className="text-xl md:text-3xl text-black font-bold mb-5">
+                {title}
+              </h1>
 
-              <p className="text-base md:text-lg font-semibold">
-                Genre: {genre}
+              <p className=" text-base md:text-lg font-semibold">
+                Genre:
+                <span className="font-semibold ml-2 text-sm md:text-base">
+                  {genre}
+                </span>
               </p>
               <p className="text-base md:text-lg font-semibold">
-                Duration: {duration}
+                Duration:
+                <span className="font-semibold ml-2 text-sm md:text-base">
+                  {duration}
+                </span>
               </p>
               <p className="text-base md:text-lg font-semibold">
-                Release Year: {year}
+                Release Year:
+                <span className="font-semibold ml-2  text-sm md:text-base">
+                  {year}
+                </span>
               </p>
               <p className="text-base md:text-lg font-semibold">
-                Rating: {rating}
+                Rating:
+                <span className="font-semibold ml-2  text-sm md:text-base">
+                  {rating}
+                </span>
               </p>
               <p className="text-base md:text-lg font-semibold">
-                Summary: {summary}
+                Summary:
+                <span className="font-semibold ml-2 text-sm md:text-base">
+                  {summary}
+                </span>
               </p>
 
               <div className="flex flex-col md:flex-row gap-5 flex-wrap pt-10">

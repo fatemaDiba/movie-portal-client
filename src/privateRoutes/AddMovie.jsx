@@ -3,11 +3,12 @@ import { toast } from "react-toastify";
 import ReactStars from "react-rating-stars-component";
 import { useContext, useState } from "react";
 import { AuthContext } from "../Auth/AuthProvider";
+import { useNavigate } from "react-router-dom";
 
 const AddMovie = () => {
   const [rating, setRating] = useState(0);
   const { user } = useContext(AuthContext);
-
+  const navigate = useNavigate();
   const ratingChanged = (newRating) => {
     setRating(newRating);
   };
@@ -62,6 +63,7 @@ const AddMovie = () => {
         console.log(data);
         toast.success("Successfully Added Movie");
         form.reset();
+        navigate("/all-movies");
       });
   };
 

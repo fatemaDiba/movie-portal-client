@@ -60,6 +60,7 @@ const router = createBrowserRouter([
             <MyFav></MyFav>
           </PrivateRoute>
         ),
+        loader: () => fetch("http://localhost:5000/my-favorites"),
       },
       {
         path: "/movie-details/:id",

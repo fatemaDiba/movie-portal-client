@@ -10,7 +10,7 @@ const Footer = () => {
       <div className="container mx-auto">
         <div className="p-20">
           <div className="flex flex-col items-center justify-center">
-            <h3 className="text-xl md:text-2xl font-bold mb-2">MOVIE PORTAL</h3>
+            <h3 className="text-xl md:text-3xl font-bold mb-2">MOVIE PORTAL</h3>
             <p className="md:w-[45%] text-center text-sm md:text-base text-white/50">
               A Free Theater for all has begun. Enjoy instant access to 6000+
               Movies for the whole family anywhere, on any device.
