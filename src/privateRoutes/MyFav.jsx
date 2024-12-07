@@ -1,11 +1,20 @@
 import { Helmet } from "react-helmet-async";
-import { useLoaderData } from "react-router-dom";
 import FavCard from "./FavCard";
-import { useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { toast } from "react-toastify";
+import { AuthContext } from "../Auth/AuthProvider";
 const MyFav = () => {
-  const favMoviesData = useLoaderData();
-  const [favItems, setFavItems] = useState(favMoviesData);
+  const [favItems, setFavItems] = useState([]);
+  const { user } = useContext(AuthContext);
+  const email = user.email;
+  useEffect(() => {
+    fetch(`http://localhost:5000/my-favorites/${email}`)
+      .then((res) => res.json())
+      .then((data) => {
+        setFavItems(data);
+        console.log(data);
+      });
+  }, []);
 
   const handleDeleteFavBtn = (id) => {
     fetch(`http://localhost:5000/my-favorites/${id}`, {

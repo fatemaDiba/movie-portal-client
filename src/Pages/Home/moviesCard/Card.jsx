@@ -24,7 +24,7 @@ const Card = ({ item }) => {
         <div className="card-actions">
           <Link
             to={`/movie-details/${_id}`}
-            className="border-0 bg-gradient-to-b from-purple-400 to-pink-400 font-semibold text-white px-4 py-2 rounded-lg shadow-md hover:shadow-lg"
+            className="border-0 bg-gradient-to-b from-purple-400 to-pink-400 font-semibold text-white px-4 py-2 rounded-lg shadow-md hover:shadow-lg text-sm"
           >
             See Details
           </Link>

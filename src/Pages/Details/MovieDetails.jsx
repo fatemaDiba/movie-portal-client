@@ -20,7 +20,6 @@ const MovieDetails = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
         if (data.deletedCount > 0) {
           toast.success("Movie successfully deleted");
           navigate("/all-movies");
@@ -41,7 +40,6 @@ const MovieDetails = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
         if (data.message) {
           toast.error("Movie already exists");
           return;

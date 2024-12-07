@@ -5,7 +5,8 @@ import { toast } from "react-toastify";
 import { Helmet } from "react-helmet-async";
 
 const Register = () => {
-  const { newUser, signInWithGoogle, setLoading } = useContext(AuthContext);
+  const { newUser, signInWithGoogle, setLoading, updateUser } =
+    useContext(AuthContext);
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -25,11 +26,17 @@ const Register = () => {
 
     newUser(email, password)
       .then((res) => {
-        console.log(res.user);
+        // console.log(res.user);
         form.reset();
         toast.success("Successfully registered user");
+
+        updateUser(name, photoUrl)
+          .then((res) => {})
+          .catch((error) => {
+            toast.error("Something went wrong");
+          });
+
         navigate(location?.state ? location.state : "/");
-        // database er kaj baki
       })
       .catch((error) => {
         toast.error("Something went wrong");

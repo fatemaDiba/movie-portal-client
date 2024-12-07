@@ -65,7 +65,6 @@ const UpdateMovie = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
         toast.success("Successfully Updated Movie");
         navigate("/");
       });

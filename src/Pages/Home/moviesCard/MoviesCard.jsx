@@ -3,12 +3,12 @@ import Card from "./Card";
 
 const MoviesCard = () => {
   const moviesData = useLoaderData();
-  console.log(moviesData);
+
   return (
     <div className="container w-10/12 mx-auto mb-20">
       <div className="flex flex-col justify-center items-center mb-14">
         <h1 className="text-2xl md:text-4xl font-bold mb-3">Featured Movies</h1>
-        <p className="text-base md:text-lg text-center md:w-[60%] mx-auto">
+        <p className="text-sm md:text-base text-center md:w-[60%] mx-auto">
           Discover our handpicked selection of the latest and most popular
           movies, showcasing top-rated performances, gripping stories, and
           breathtaking visuals

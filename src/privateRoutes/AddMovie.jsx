@@ -60,7 +60,6 @@ const AddMovie = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
         toast.success("Successfully Added Movie");
         form.reset();
         navigate("/all-movies");

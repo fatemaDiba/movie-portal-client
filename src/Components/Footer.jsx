@@ -112,6 +112,12 @@ const Footer = () => {
                 <a className="link link-hover hover:text-orange-400 text-white/50 text-sm md:text-base">
                   Get in Touch
                 </a>
+                <a className="link link-hover hover:text-orange-400 text-white/50 text-sm md:text-base">
+                  movieportal@gmail.com
+                </a>
+                <a className="link link-hover hover:text-orange-400 text-white/50 text-sm md:text-base">
+                  + 82803790129
+                </a>
               </nav>
             </footer>
           </div>
