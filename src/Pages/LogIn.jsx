@@ -3,27 +3,31 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../Auth/AuthProvider";
 import { toast } from "react-toastify";
 import { Helmet } from "react-helmet-async";
+import { useForm } from "react-hook-form";
 
 const LogIn = () => {
   const { oldUser, signInWithGoogle, setLoading } = useContext(AuthContext);
   const navigate = useNavigate();
   const location = useLocation();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
 
-  const handleLogInBtn = (e) => {
-    e.preventDefault();
-    const form = e.target;
-    const email = form.email.value;
-    const password = form.password.value;
+  const onSubmit = (data) => {
+    const email = data.email;
+    const password = data.password;
 
     oldUser(email, password)
       .then((res) => {
         console.log(res.user);
-        form.reset();
+        toast.success("Successfully Logged in user");
+        setLoading(false);
         navigate(location?.state ? location.state : "/");
       })
       .catch((error) => {
         toast.error("Something went wrong");
-        setLoading(false);
       });
   };
 
@@ -50,18 +54,21 @@ const LogIn = () => {
             <h2 className="font-bold text-center text-base md:text-xl">
               LogIn Now
             </h2>
-            <form onSubmit={handleLogInBtn}>
+            <form onSubmit={handleSubmit(onSubmit)}>
               <div className="form-control">
                 <label className="label">
                   <span className="label-text">Email</span>
                 </label>
                 <input
                   type="email"
-                  name="email"
+                  // name="email"
+                  {...register("email", { required: true })}
                   placeholder="email"
                   className="input input-bordered"
-                  required
                 />
+                <span className="text-red-500 mt-3">
+                  {errors.email?.type === "required" && "Valid email is needed"}
+                </span>
               </div>
               <div className="form-control">
                 <label className="label">
@@ -69,11 +76,16 @@ const LogIn = () => {
                 </label>
                 <input
                   type="password"
-                  name="password"
+                  // name="password"
+                  {...register("password", { required: true })}
                   placeholder="password"
                   className="input input-bordered"
-                  required
                 />
+                <span className="text-red-500 mt-3">
+                  {errors.password?.type === "required" &&
+                    "Valid Password is needed"}
+                </span>
+
                 <label className="label">
                   <a className="label-text-alt link link-hover">
                     Forgot password?
