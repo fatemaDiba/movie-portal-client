@@ -22,7 +22,7 @@ const AllMovies = () => {
       <Helmet>
         <title>All Movies-Movie Portal</title>
       </Helmet>
-      <div className="flex flex-col justify-center items-center mb-5">
+      <div className="flex flex-col justify-center items-center mb-5 dark:text-white">
         <h2 className="text-xl md:text-4xl font-bold mb-2 ">
           Explore All Movies
         </h2>
@@ -34,7 +34,7 @@ const AllMovies = () => {
       </div>
       {/* search bar */}
       <div className="w-[40%] mx-auto mb-14">
-        <label className="input input-bordered flex items-center gap-2">
+        <label className="input input-bordered dark:border-white/50 flex items-center gap-2">
           <input
             type="text"
             className="grow"

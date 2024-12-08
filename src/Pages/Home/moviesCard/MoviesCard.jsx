@@ -6,7 +6,7 @@ const MoviesCard = () => {
 
   return (
     <div className="container w-10/12 mx-auto mb-20">
-      <div className="flex flex-col justify-center items-center mb-14">
+      <div className="flex flex-col justify-center items-center mb-14 dark:text-white">
         <h1 className="text-2xl md:text-4xl font-bold mb-3">Featured Movies</h1>
         <p className="text-sm md:text-base text-center md:w-[60%] mx-auto">
           Discover our handpicked selection of the latest and most popular

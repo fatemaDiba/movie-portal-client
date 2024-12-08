@@ -2,10 +2,15 @@ import { useContext, useState } from "react";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import { AuthContext } from "../Auth/AuthProvider";
 import { toast } from "react-toastify";
+import { MdOutlineWbSunny } from "react-icons/md";
+import { ThemeContext } from "../Auth/ThemeProvider";
+import { LuMoon } from "react-icons/lu";
+
 const Header = () => {
   const [showUserName, setShowUserName] = useState(false);
   const { user, logOutUser } = useContext(AuthContext);
   const navigate = useNavigate();
+  const { theme, setTheme } = useContext(ThemeContext);
 
   const handleShowUserName = () => {
     setShowUserName(true);
@@ -83,17 +88,23 @@ const Header = () => {
                 {navList}
               </ul>
             </div>
-            <a className="text-xl md:text-2xl font-bold ml-3">MOVIE PORTAL</a>
+            <a className="text-xl dark:text-white md:text-2xl font-bold ml-3">
+              MOVIE PORTAL
+            </a>
           </div>
           <div className="navbar-center hidden lg:flex">
-            <ul className="menu-horizontal px-1 gap-6 text-sm">{navList}</ul>
+            <ul className="menu-horizontal dark:text-white px-1 gap-6 text-sm">
+              {navList}
+            </ul>
           </div>
 
           <div className="navbar-end">
             {user && (
               <div className="flex gap-4 ">
                 <div
-                  className={` text-sm  ${showUserName ? "block" : "hidden"}`}
+                  className={` text-sm dark:text-white ${
+                    showUserName ? "block" : "hidden"
+                  }`}
                 >
                   {user?.displayName}
                 </div>
@@ -102,7 +113,7 @@ const Header = () => {
                   onMouseLeave={handleRemoveUserName}
                   tabIndex={0}
                   role="button"
-                  className="btn btn-ghost btn-circle avatar"
+                  className="btn btn-ghost dark:border-white/70 btn-circle avatar"
                 >
                   <div className="w-10 rounded-full relative">
                     <img
@@ -117,7 +128,7 @@ const Header = () => {
             {user ? (
               <button
                 onClick={handleLogOutBtn}
-                className="btn bg-slate-200 hover:bg-slate-400 ml-3"
+                className="btn bg-slate-200 dark:text-black hover:bg-slate-400 ml-3"
               >
                 Log Out
               </button>
@@ -125,18 +136,28 @@ const Header = () => {
               <div>
                 <Link
                   to="/login"
-                  className="btn bg-slate-200 hover:bg-slate-400 ml-3"
+                  className="btn bg-slate-200 dark:text-black hover:bg-slate-400 ml-3"
                 >
                   LogIn
                 </Link>
                 <Link
                   to="/register"
-                  className="btn bg-slate-200 hover:bg-slate-400 ml-3"
+                  className="btn bg-slate-200 dark:text-black hover:bg-slate-400 ml-3"
                 >
                   Register
                 </Link>
               </div>
             )}
+            <div className="text-2xl ml-3 cursor-pointer">
+              {theme === "light" ? (
+                <LuMoon onClick={() => setTheme("dark")} />
+              ) : (
+                <MdOutlineWbSunny
+                  className="dark:text-white"
+                  onClick={() => setTheme("light")}
+                />
+              )}
+            </div>
           </div>
         </div>
       </div>

@@ -2,7 +2,7 @@ const Features = () => {
   return (
     <div className="w-10/12 mx-auto mb-20">
       <div className="grid grid-cols-2 md:grid-cols-4 gap-10">
-        <div className="justify-items-center">
+        <div className="justify-items-center dark:text-white">
           <img
             className=" w-[20%] md:w-[30%] mb-5"
             src="/assets/earth.png"
@@ -14,7 +14,7 @@ const Features = () => {
             more countries worldwide.
           </p>
         </div>
-        <div className="justify-items-center">
+        <div className="justify-items-center dark:text-white">
           <img
             className="w-[20%] md:w-[30%] mb-5"
             src="/assets/video.png"
@@ -28,7 +28,7 @@ const Features = () => {
             more all within one website.
           </p>
         </div>
-        <div className="justify-items-center">
+        <div className="justify-items-center dark:text-white">
           <img
             className="w-[20%] md:w-[30%] mb-5"
             src="/assets/pound.png"
@@ -42,7 +42,7 @@ const Features = () => {
             payment or subscription.
           </p>
         </div>
-        <div className="justify-items-center">
+        <div className="justify-items-center dark:text-white">
           <img
             className="w-[20%] md:w-[30%] mb-5"
             src="/assets/device.png"

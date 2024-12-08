@@ -8,7 +8,7 @@ const FavCard = ({ item, handleDeleteFavBtn }) => {
       <figure>
         <img src={poster} alt="movie" />
       </figure>
-      <div className="card-body">
+      <div className="card-body dark:text-white">
         <h2 className="card-title font-bold">Title: {title}</h2>
         <p className="font-semibold">
           Genre: <span>{genre}</span>

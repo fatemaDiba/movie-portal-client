@@ -35,7 +35,7 @@ const MyFav = () => {
       <Helmet>
         <title>My Favorites-Movie Portal</title>
       </Helmet>
-      <div className="flex flex-col justify-center items-center mb-10">
+      <div className="flex flex-col justify-center items-center mb-10 dark:text-white">
         <h2 className="text-xl md:text-4xl font-bold mb-2 ">
           My Favorite Movies
         </h2>

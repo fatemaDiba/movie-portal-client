@@ -5,7 +5,7 @@ const Online = () => {
         <div>
           <img src="/assets/phn.png" alt="" />
         </div>
-        <div className="text-center md:text-start">
+        <div className="text-center md:text-start dark:text-white">
           <h2 className="text-xl md:text-4xl font-bold mb-3">
             It has never been easier to watch free movies online.
           </h2>

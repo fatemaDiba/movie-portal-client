@@ -48,9 +48,9 @@ const LogIn = () => {
       <Helmet>
         <title>LogIn-Movie Portal</title>
       </Helmet>
-      <div className="container md:w-11/12 mx-auto">
+      <div className="container md:w-11/12 mx-auto mb-20">
         <div className="card bg-base-100 w-[70%] md:w-[50%] mx-auto shrink-0 shadow-2xl">
-          <div className="card-body">
+          <div className="card-body  dark:text-white">
             <h2 className="font-bold text-center text-base md:text-xl">
               LogIn Now
             </h2>
@@ -101,7 +101,7 @@ const LogIn = () => {
             <div>
               <p className="text-sm mb-2">LogIn with google</p>
               <button
-                className="btn bg-slate-200 hover:bg-slate-400 w-full"
+                className="btn bg-slate-200 hover:bg-slate-400 w-full dark:text-black"
                 onClick={handleGoogleBtn}
               >
                 Google

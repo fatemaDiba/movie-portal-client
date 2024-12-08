@@ -77,7 +77,7 @@ const UpdateMovie = () => {
       </Helmet>
       <div className="container md:w-11/12 mx-auto mb-20">
         <div className="card bg-base-100 w-[70%] md:w-[50%] mx-auto shrink-0 shadow-2xl">
-          <div className="card-body">
+          <div className="card-body  dark:text-white">
             <h2 className="font-bold text-center text-base md:text-xl">
               Update Your Movie Information Now
             </h2>

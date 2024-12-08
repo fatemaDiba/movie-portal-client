@@ -61,9 +61,9 @@ const Register = () => {
       <Helmet>
         <title>Register-Movie Portal</title>
       </Helmet>
-      <div className="container md:w-11/12 mx-auto">
+      <div className="container md:w-11/12 mx-auto mb-20">
         <div className="card bg-base-100 w-[70%] md:w-[50%] mx-auto shrink-0 shadow-2xl">
-          <div className="card-body">
+          <div className="card-body  dark:text-white">
             <h2 className="font-bold text-center text-base md:text-xl">
               Register Now
             </h2>
@@ -131,7 +131,7 @@ const Register = () => {
               <p className="text-sm mb-2">Register with google</p>
               <button
                 onClick={handleGoogleBtn}
-                className="btn bg-slate-200 hover:bg-slate-400 w-full"
+                className="btn bg-slate-200 hover:bg-slate-400 w-full dark:text-black"
               >
                 Google
               </button>

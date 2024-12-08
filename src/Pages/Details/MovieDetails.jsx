@@ -58,8 +58,8 @@ const MovieDetails = () => {
         <div className="p-10 bg-base-200 rounded-2xl">
           <div className="flex flex-col lg:flex-row gap-10 items-center">
             <img src={poster} className="w-[50%] rounded-lg shadow-2xl" />
-            <div className="space-y-3">
-              <h1 className="text-xl md:text-3xl text-black font-bold mb-5">
+            <div className="space-y-3  dark:text-white">
+              <h1 className="text-xl md:text-3xl text-black  dark:text-white font-bold mb-5">
                 {title}
               </h1>
 
@@ -94,17 +94,23 @@ const MovieDetails = () => {
                 </span>
               </p>
 
-              <div className="flex flex-col md:flex-row gap-5 flex-wrap pt-10">
+              <div className="flex flex-col md:flex-row gap-5 flex-wrap pt-10 ">
                 <button
                   onClick={() => handleDeleteBtn(_id)}
-                  className="btn btn-primary"
+                  className="btn btn-primary  dark:text-white"
                 >
                   Delete <RiDeleteBin6Fill className="text-lg" />
                 </button>
-                <button onClick={handleFavBtn} className="btn btn-primary">
+                <button
+                  onClick={handleFavBtn}
+                  className="btn btn-primary  dark:text-white"
+                >
                   Add To Favorite <FaHeartCirclePlus className="text-lg" />
                 </button>
-                <Link to={`/update/${_id}`} className="btn btn-primary">
+                <Link
+                  to={`/update/${_id}`}
+                  className="btn btn-primary  dark:text-white"
+                >
                   Update Movie <RxUpdate className="text-lg" />
                 </Link>
               </div>

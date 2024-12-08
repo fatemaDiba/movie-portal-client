@@ -8,7 +8,7 @@ const Reviews = () => {
       </Helmet>
       <div className="w-10/12 mx-auto mb-20 ">
         <div
-          className="text-gray-600 dark:text-gray-300 pt-8 dark:bg-gray-900"
+          className="text-gray-600 rounded-2xl dark:text-gray-300 pt-8 dark:bg-gray-900"
           id="reviews"
         >
           <div className="max-w-7xl mx-auto px-6 md:px-12 xl:px-6">
@@ -19,7 +19,7 @@ const Reviews = () => {
             </div>
 
             <div className="md:columns-2 lg:columns-3 gap-8 space-y-8">
-              <div className="h-80 aspect-auto p-8 border border-gray-100 rounded-3xl bg-white dark:bg-gray-800 dark:border-gray-700 shadow-2xl shadow-gray-600/10 dark:shadow-none bg-gradient-to-r from-purple-300 to-pink-300">
+              <div className="h-80 aspect-auto p-8 border border-gray-100 rounded-3xl bg-white dark:bg-gray-800 dark:border-gray-700 shadow-2xl shadow-gray-600/10 dark:shadow-none bg-gradient-to-r from-purple-300 to-pink-300 dark:text-black">
                 <div className="flex gap-4">
                   <img
                     className="w-12 h-12 rounded-full"
@@ -30,10 +30,10 @@ const Reviews = () => {
                     loading="lazy"
                   />
                   <div>
-                    <h6 className="text-lg font-medium text-gray-700 dark:text-white">
+                    <h6 className="text-lg font-medium text-gray-700 dark:text-black">
                       Daniella Doe
                     </h6>
-                    <p className="text-sm text-gray-500 dark:text-gray-300">
+                    <p className="text-sm text-gray-500 dark:text-black">
                       Mobile dev
                     </p>
                   </div>
@@ -46,7 +46,7 @@ const Reviews = () => {
                 </p>
               </div>
 
-              <div className="h-80 aspect-auto p-8 border border-gray-100 rounded-3xl bg-white dark:bg-gray-800 dark:border-gray-700 shadow-2xl shadow-gray-600/10 dark:shadow-none bg-gradient-to-r from-purple-300 to-pink-300">
+              <div className="h-80 aspect-auto p-8 border border-gray-100 rounded-3xl bg-white dark:bg-gray-800 dark:border-gray-700 shadow-2xl shadow-gray-600/10 dark:shadow-none bg-gradient-to-r from-purple-300 to-pink-300  dark:text-black">
                 <div className="flex gap-4">
                   <img
                     className="w-12 h-12 rounded-full"
@@ -57,10 +57,10 @@ const Reviews = () => {
                     loading="lazy"
                   />
                   <div>
-                    <h6 className="text-lg font-medium text-gray-700 dark:text-white">
+                    <h6 className="text-lg font-medium text-gray-700 dark:text-black">
                       Jane doe
                     </h6>
-                    <p className="text-sm text-gray-500 dark:text-gray-300">
+                    <p className="text-sm text-gray-500 dark:text-black">
                       Marketing
                     </p>
                   </div>
@@ -72,7 +72,7 @@ const Reviews = () => {
                 </p>
               </div>
 
-              <div className="h-80 aspect-auto p-8 border border-gray-100 rounded-3xl bg-white dark:bg-gray-800 dark:border-gray-700 shadow-2xl shadow-gray-600/10 dark:shadow-none bg-gradient-to-r from-purple-300 to-pink-300">
+              <div className="h-80 aspect-auto p-8 border border-gray-100 rounded-3xl bg-white dark:bg-gray-800 dark:border-gray-700 shadow-2xl shadow-gray-600/10 dark:shadow-none bg-gradient-to-r from-purple-300 to-pink-300  dark:text-black">
                 <div className="flex gap-4">
                   <img
                     className="w-12 h-12 rounded-full"
@@ -83,10 +83,10 @@ const Reviews = () => {
                     loading="lazy"
                   />
                   <div>
-                    <h6 className="text-lg font-medium text-gray-700 dark:text-white">
+                    <h6 className="text-lg font-medium text-gray-700 dark:text-black">
                       Yanick Doe
                     </h6>
-                    <p className="text-sm text-gray-500 dark:text-gray-300">
+                    <p className="text-sm text-gray-500 dark:text-black">
                       Developer
                     </p>
                   </div>
@@ -99,7 +99,7 @@ const Reviews = () => {
                 </p>
               </div>
 
-              <div className="h-80 aspect-auto p-8 border border-gray-100 rounded-3xl bg-white dark:bg-gray-800 dark:border-gray-700 shadow-2xl shadow-gray-600/10 dark:shadow-none bg-gradient-to-r from-purple-300 to-pink-300">
+              <div className="h-80 aspect-auto p-8 border border-gray-100 rounded-3xl bg-white dark:bg-gray-800 dark:border-gray-700 shadow-2xl shadow-gray-600/10 dark:shadow-none bg-gradient-to-r from-purple-300 to-pink-300  dark:text-black">
                 <div className="flex gap-4">
                   <img
                     className="w-12 h-12 rounded-full"
@@ -110,10 +110,10 @@ const Reviews = () => {
                     loading="lazy"
                   />
                   <div>
-                    <h6 className="text-lg font-medium text-gray-700 dark:text-white">
+                    <h6 className="text-lg font-medium text-gray-700 dark:text-black">
                       Jane Doe
                     </h6>
-                    <p className="text-sm text-gray-500 dark:text-gray-300">
+                    <p className="text-sm text-gray-500 dark:text-black">
                       Mobile dev
                     </p>
                   </div>
@@ -126,7 +126,7 @@ const Reviews = () => {
                 </p>
               </div>
 
-              <div className="h-80 aspect-auto p-8 border border-gray-100 rounded-3xl bg-white dark:bg-gray-800 dark:border-gray-700 shadow-2xl shadow-gray-600/10 dark:shadow-none bg-gradient-to-r from-purple-300 to-pink-300">
+              <div className="h-80 aspect-auto p-8 border border-gray-100 rounded-3xl bg-white dark:bg-gray-800 dark:border-gray-700 shadow-2xl shadow-gray-600/10 dark:shadow-none bg-gradient-to-r from-purple-300 to-pink-300  dark:text-black">
                 <div className="flex gap-4">
                   <img
                     className="w-12 h-12 rounded-full"
@@ -137,10 +137,10 @@ const Reviews = () => {
                     loading="lazy"
                   />
                   <div>
-                    <h6 className="text-lg font-medium text-gray-700 dark:text-white">
+                    <h6 className="text-lg font-medium text-gray-700 dark:text-black">
                       Andy Doe
                     </h6>
-                    <p className="text-sm text-gray-500 dark:text-gray-300">
+                    <p className="text-sm text-gray-500 dark:text-black">
                       Manager
                     </p>
                   </div>
@@ -153,8 +153,8 @@ const Reviews = () => {
                 </p>
               </div>
 
-              <div className="h-80 aspect-auto p-8 border border-gray-100 rounded-3xl bg-white dark:bg-gray-800 dark:border-gray-700 shadow-2xl shadow-gray-600/10 dark:shadow-none bg-gradient-to-r from-purple-300 to-pink-300">
-                <div className="flex gap-4">
+              <div className="h-80 aspect-auto p-8 border border-gray-100 rounded-3xl bg-white dark:bg-gray-800 dark:border-gray-700 shadow-2xl shadow-gray-600/10 dark:shadow-none bg-gradient-to-r from-purple-300 to-pink-300  dark:text-black">
+                <div className="flex gap-4 ">
                   <img
                     className="w-12 h-12 rounded-full"
                     src="https://randomuser.me/api/portraits/women/19.jpg"
@@ -164,10 +164,10 @@ const Reviews = () => {
                     loading="lazy"
                   />
                   <div>
-                    <h6 className="text-lg font-medium text-gray-700 dark:text-white">
+                    <h6 className="text-lg font-medium text-gray-700 dark:text-black">
                       Yanndy Doe
                     </h6>
-                    <p className="text-sm text-gray-500 dark:text-gray-300">
+                    <p className="text-sm text-gray-500 dark:text-black">
                       Mobile dev
                     </p>
                   </div>
