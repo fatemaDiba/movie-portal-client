@@ -1,5 +1,5 @@
 <h1>Project Name: Movie Portal</h1>
-<h2>Link: <a href=""></a></h2>
+<h2>Link: <a href="https://movie-portal-by-fatema.surge.sh/">Click here to access the Movie Portal</a></h2>
 
 <h2>Purpose:</h2>
 
