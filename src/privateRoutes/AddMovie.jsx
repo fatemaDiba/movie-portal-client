@@ -51,7 +51,7 @@ const AddMovie = () => {
       userEmail,
     };
 
-    fetch("http://localhost:5000/add-movie", {
+    fetch("https://movie-protal-server.vercel.app/add-movie", {
       method: "POST",
       headers: {
         "content-type": "application/json",

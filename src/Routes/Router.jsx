@@ -22,7 +22,7 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home></Home>,
-        loader: () => fetch("http://localhost:5000/featured-movies"),
+        loader: () => fetch("https://movie-protal-server.vercel.app/featured-movies"),
       },
       {
         path: "/login",
@@ -43,7 +43,7 @@ const router = createBrowserRouter([
       {
         path: "/all-movies",
         element: <AllMovies></AllMovies>,
-        loader: () => fetch("http://localhost:5000/all-movies"),
+        loader: () => fetch("https://movie-protal-server.vercel.app/all-movies"),
       },
       {
         path: "/add-movie",
@@ -69,7 +69,7 @@ const router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/all-movies/${params.id}`),
+          fetch(`https://movie-protal-server.vercel.app/all-movies/${params.id}`),
       },
       {
         path: "/update/:id",
@@ -79,7 +79,7 @@ const router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/all-movies/${params.id}`),
+          fetch(`https://movie-protal-server.vercel.app/all-movies/${params.id}`),
       },
       {
         path: "/reviews",

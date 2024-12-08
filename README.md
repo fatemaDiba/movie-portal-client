@@ -19,6 +19,7 @@
 <h2>NPM Packages used:</h2>
 <ul>
     <li>react-icons</li>
+    <li>react-hook-form</li>
     <li>react-rating-star</li>
     <li>react-helmet-async</li>
     <li>react-router-dom</li>

@@ -56,7 +56,7 @@ const UpdateMovie = () => {
       userEmail,
     };
 
-    fetch(`http://localhost:5000/all-movies/${_id}`, {
+    fetch(`https://movie-protal-server.vercel.app/all-movies/${_id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",

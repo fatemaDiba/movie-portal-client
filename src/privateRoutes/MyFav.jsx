@@ -8,7 +8,7 @@ const MyFav = () => {
   const { user } = useContext(AuthContext);
   const email = user.email;
   useEffect(() => {
-    fetch(`http://localhost:5000/my-favorites/${email}`)
+    fetch(`https://movie-protal-server.vercel.app/my-favorites/${email}`)
       .then((res) => res.json())
       .then((data) => {
         setFavItems(data);
@@ -17,7 +17,7 @@ const MyFav = () => {
   }, []);
 
   const handleDeleteFavBtn = (id) => {
-    fetch(`http://localhost:5000/my-favorites/${id}`, {
+    fetch(`https://movie-protal-server.vercel.app/my-favorites/${id}`, {
       method: "DELETE",
     })
       .then((res) => res.json())

@@ -15,7 +15,7 @@ const MovieDetails = () => {
   const navigate = useNavigate();
 
   const handleDeleteBtn = (id) => {
-    fetch(`http://localhost:5000/all-movies/${id}`, {
+    fetch(`https://movie-protal-server.vercel.app/all-movies/${id}`, {
       method: "DELETE",
     })
       .then((res) => res.json())
@@ -31,7 +31,7 @@ const MovieDetails = () => {
       ...movieData,
       userEmail: user.email,
     };
-    fetch("http://localhost:5000/my-favorites", {
+    fetch("https://movie-protal-server.vercel.app/my-favorites", {
       method: "POST",
       headers: {
         "content-type": "application/json",
