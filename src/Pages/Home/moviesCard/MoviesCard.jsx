@@ -14,7 +14,7 @@ const MoviesCard = () => {
           breathtaking visuals
         </p>
       </div>
-      <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
         {moviesData.map((item) => {
           return <Card key={item._id} item={item}></Card>;
         })}
@@ -22,7 +22,7 @@ const MoviesCard = () => {
       <div className="text-center mt-12">
         <Link
           to="/all-movies"
-          className="btn border-0 bg-gradient-to-b from-purple-500 to-pink-500 text-white px-6 py-3 rounded-lg shadow-md hover:shadow-lg"
+          className="btn bg-light-primary text-white px-6 py-3 rounded-lg shadow-md hover:bg-dark-primary"
         >
           See All Movies
         </Link>

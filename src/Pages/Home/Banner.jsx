@@ -1,7 +1,9 @@
+import { Link } from "react-router-dom";
+
 const Banner = () => {
   return (
-    <div className="mb-20 mx-auto">
-      <div className="relative w-full h-[45vh] md:h-[75vh]">
+    <div className="mb-5 mx-auto">
+      <div className="relative w-full h-[50vh] md:h-[90vh]">
         <div className="absolute inset-0 z-10 flex flex-col items-center justify-center text-center text-white p-4">
           <div className="bg-black/30 backdrop-blur-md p-6 rounded-lg w-9/12 md:max-w-3xl space-y-4 dark:text-white">
             <h1 className="text-xl md:text-4xl font-bold">
@@ -11,9 +13,12 @@ const Banner = () => {
               The search is over!! Let Movie Portal help you find the perfect
               movie to watch tonight for free.
             </p>
-            <a className="btn border-0 bg-gradient-to-r from-orange-500 to-amber-600 text-white px-6 py-3 rounded-lg shadow-md hover:shadow-lg">
+            <Link
+              to="/all-movies"
+              className="btn border-0 bg-light-primary hover:bg-dark-primary text-white px-6 py-3 rounded-lg shadow-md hover:shadow-lg"
+            >
               Watch Free
-            </a>
+            </Link>
           </div>
         </div>
         <div className="carousel w-full h-[45vh] md:h-[75vh] rounded-lg">

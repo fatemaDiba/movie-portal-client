@@ -175,7 +175,7 @@ const UpdateMovie = () => {
               ></textarea>
 
               <div className="form-control mt-6 mb-4">
-                <button className="btn bg-purple-500 hover:bg-purple-600 text-white">
+                <button className="btn bg-light-primary hover:bg-dark-primary text-white">
                   Update
                 </button>
               </div>

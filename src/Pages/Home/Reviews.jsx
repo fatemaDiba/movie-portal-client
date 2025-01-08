@@ -6,20 +6,21 @@ const Reviews = () => {
       <Helmet>
         <title>Reviews-Movie Portal</title>
       </Helmet>
-      <div className="w-10/12 mx-auto mb-20 ">
+      <div className="w-10/12 mx-auto mb-20 mt-28">
         <div
-          className="text-gray-600 rounded-2xl dark:text-gray-300 pt-8 dark:bg-gray-900"
+          className="drop-shadow-2xl p-4 lg:p-10 rounded-2xl text-black pt-8 bg-slate-200 dark:bg-gray-900"
           id="reviews"
         >
-          <div className="max-w-7xl mx-auto px-6 md:px-12 xl:px-6">
+          <div className="max-w-7xl mx-auto px-4 lg:px-6 ">
             <div className="mb-10 space-y-4 px-6 md:px-0">
-              <h2 className="text-center text-2xl font-bold text-gray-800 dark:text-white md:text-4xl">
+              <h2 className="text-center text-2xl font-bold text-black/90 dark:text-white md:text-4xl">
                 We have some fans.
               </h2>
             </div>
 
-            <div className="md:columns-2 lg:columns-3 gap-8 space-y-8">
-              <div className="h-80 aspect-auto p-8 border border-gray-100 rounded-3xl bg-white dark:bg-gray-800 dark:border-gray-700 shadow-2xl shadow-gray-600/10 dark:shadow-none bg-gradient-to-r from-purple-300 to-pink-300 dark:text-black">
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-10">
+              {/* 1st card */}
+              <div className="h-full  aspect-auto p-5 border rounded-3xl dark:border-gray-700 shadow-2xl shadow-gray-600/10 dark:shadow-none bg-light-primary/50 dark:bg-light-primary/40 text-black dark:text-white/70">
                 <div className="flex gap-4">
                   <img
                     className="w-12 h-12 rounded-full"
@@ -30,49 +31,19 @@ const Reviews = () => {
                     loading="lazy"
                   />
                   <div>
-                    <h6 className="text-lg font-medium text-gray-700 dark:text-black">
-                      Daniella Doe
-                    </h6>
-                    <p className="text-sm text-gray-500 dark:text-black">
-                      Mobile dev
-                    </p>
+                    <h6 className="text-lg font-medium">Daniella Doe</h6>
+                    <p className="text-sm">Mobile dev</p>
                   </div>
                 </div>
                 <p className="mt-8">
                   I absolutely love this website! It’s my go-to place for
                   finding new movies to watch. The recommendations are spot-on,
                   and I love how easy it is to see ratings and reviews before
-                  watching a film. Highly recommend to anyone who loves cinema!
+                  watching a film.
                 </p>
               </div>
 
-              <div className="h-80 aspect-auto p-8 border border-gray-100 rounded-3xl bg-white dark:bg-gray-800 dark:border-gray-700 shadow-2xl shadow-gray-600/10 dark:shadow-none bg-gradient-to-r from-purple-300 to-pink-300  dark:text-black">
-                <div className="flex gap-4">
-                  <img
-                    className="w-12 h-12 rounded-full"
-                    src="https://randomuser.me/api/portraits/women/14.jpg"
-                    alt="user avatar"
-                    width="200"
-                    height="200"
-                    loading="lazy"
-                  />
-                  <div>
-                    <h6 className="text-lg font-medium text-gray-700 dark:text-black">
-                      Jane doe
-                    </h6>
-                    <p className="text-sm text-gray-500 dark:text-black">
-                      Marketing
-                    </p>
-                  </div>
-                </div>
-                <p className="mt-8">
-                  Looking for honest movie reviews? This website has got you
-                  covered! With ratings, detailed critiques, and user feedback,
-                  you’ll always know what’s worth watching and what to skip.
-                </p>
-              </div>
-
-              <div className="h-80 aspect-auto p-8 border border-gray-100 rounded-3xl bg-white dark:bg-gray-800 dark:border-gray-700 shadow-2xl shadow-gray-600/10 dark:shadow-none bg-gradient-to-r from-purple-300 to-pink-300  dark:text-black">
+              <div className="h-full aspect-auto p-5 border rounded-3xl dark:border-gray-700 shadow-2xl shadow-gray-600/10 dark:shadow-none bg-light-primary/50 dark:bg-light-primary/40 text-black dark:text-white/70">
                 <div className="flex gap-4">
                   <img
                     className="w-12 h-12 rounded-full"
@@ -83,12 +54,8 @@ const Reviews = () => {
                     loading="lazy"
                   />
                   <div>
-                    <h6 className="text-lg font-medium text-gray-700 dark:text-black">
-                      Yanick Doe
-                    </h6>
-                    <p className="text-sm text-gray-500 dark:text-black">
-                      Developer
-                    </p>
+                    <h6 className="text-lg font-medium">Yanick Doe</h6>
+                    <p className="text-sm">Developer</p>
                   </div>
                 </div>
                 <p className="mt-8">
@@ -98,8 +65,30 @@ const Reviews = () => {
                   is clean and intuitive. A must-visit for movie lovers!
                 </p>
               </div>
+              {/* from-[#3770d2] to-[#da5d78] */}
+              <div className="h-full  aspect-auto p-5 border rounded-3xl dark:border-gray-700 shadow-2xl shadow-gray-600/10 dark:shadow-none bg-light-primary/50 dark:bg-light-primary/40 text-black dark:text-white/70">
+                <div className="flex gap-4">
+                  <img
+                    className="w-12 h-12 rounded-full"
+                    src="https://randomuser.me/api/portraits/women/14.jpg"
+                    alt="user avatar"
+                    width="200"
+                    height="200"
+                    loading="lazy"
+                  />
+                  <div>
+                    <h6 className="text-lg font-medium">Jane doe</h6>
+                    <p className="text-sm">Marketing</p>
+                  </div>
+                </div>
+                <p className="mt-8">
+                  Looking for honest movie reviews? This website has got you
+                  covered! With ratings, detailed critiques, and user feedback,
+                  you’ll always know what’s worth watching and what to skip.
+                </p>
+              </div>
 
-              <div className="h-80 aspect-auto p-8 border border-gray-100 rounded-3xl bg-white dark:bg-gray-800 dark:border-gray-700 shadow-2xl shadow-gray-600/10 dark:shadow-none bg-gradient-to-r from-purple-300 to-pink-300  dark:text-black">
+              <div className="h-full aspect-auto p-5 border rounded-3xl dark:border-gray-700 shadow-2xl shadow-gray-600/10 dark:shadow-none bg-light-primary/50 dark:bg-light-primary/40 text-black dark:text-white/70">
                 <div className="flex gap-4">
                   <img
                     className="w-12 h-12 rounded-full"
@@ -110,12 +99,8 @@ const Reviews = () => {
                     loading="lazy"
                   />
                   <div>
-                    <h6 className="text-lg font-medium text-gray-700 dark:text-black">
-                      Jane Doe
-                    </h6>
-                    <p className="text-sm text-gray-500 dark:text-black">
-                      Mobile dev
-                    </p>
+                    <h6 className="text-lg font-medium">Jane Doe</h6>
+                    <p className="text-sm">Mobile dev</p>
                   </div>
                 </div>
                 <p className="mt-8">
@@ -126,7 +111,7 @@ const Reviews = () => {
                 </p>
               </div>
 
-              <div className="h-80 aspect-auto p-8 border border-gray-100 rounded-3xl bg-white dark:bg-gray-800 dark:border-gray-700 shadow-2xl shadow-gray-600/10 dark:shadow-none bg-gradient-to-r from-purple-300 to-pink-300  dark:text-black">
+              <div className="h-full aspect-auto p-5 border rounded-3xl dark:border-gray-700 shadow-2xl shadow-gray-600/10 dark:shadow-none bg-light-primary/50 dark:bg-light-primary/40 text-black dark:text-white/70">
                 <div className="flex gap-4">
                   <img
                     className="w-12 h-12 rounded-full"
@@ -137,12 +122,8 @@ const Reviews = () => {
                     loading="lazy"
                   />
                   <div>
-                    <h6 className="text-lg font-medium text-gray-700 dark:text-black">
-                      Andy Doe
-                    </h6>
-                    <p className="text-sm text-gray-500 dark:text-black">
-                      Manager
-                    </p>
+                    <h6 className="text-lg font-medium">Andy Doe</h6>
+                    <p className="text-sm">Manager</p>
                   </div>
                 </div>
                 <p className="mt-8">
@@ -153,7 +134,7 @@ const Reviews = () => {
                 </p>
               </div>
 
-              <div className="h-80 aspect-auto p-8 border border-gray-100 rounded-3xl bg-white dark:bg-gray-800 dark:border-gray-700 shadow-2xl shadow-gray-600/10 dark:shadow-none bg-gradient-to-r from-purple-300 to-pink-300  dark:text-black">
+              <div className="h-full aspect-auto p-5 border rounded-3xl dark:border-gray-700 shadow-2xl shadow-gray-600/10 dark:shadow-none bg-light-primary/50 dark:bg-light-primary/40 text-black dark:text-white/70">
                 <div className="flex gap-4 ">
                   <img
                     className="w-12 h-12 rounded-full"
@@ -164,12 +145,8 @@ const Reviews = () => {
                     loading="lazy"
                   />
                   <div>
-                    <h6 className="text-lg font-medium text-gray-700 dark:text-black">
-                      Yanndy Doe
-                    </h6>
-                    <p className="text-sm text-gray-500 dark:text-black">
-                      Mobile dev
-                    </p>
+                    <h6 className="text-lg font-medium">Yanndy Doe</h6>
+                    <p className="text-sm">Mobile dev</p>
                   </div>
                 </div>
                 <p className="mt-8">

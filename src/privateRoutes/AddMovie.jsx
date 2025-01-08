@@ -71,10 +71,10 @@ const AddMovie = () => {
       <Helmet>
         <title>Add Movie-Movie Portal</title>
       </Helmet>
-      <div className="container md:w-11/12 mx-auto mb-20">
-        <div className="card bg-base-100 w-[70%] md:w-[50%] mx-auto shrink-0 shadow-2xl">
+      <div className="container md:w-11/12 mx-auto mb-20 mt-28">
+        <div className="card dark:bg-dark-background/40 bg-base-100 w-[70%] md:w-[50%] mx-auto shrink-0 shadow-2xl">
           <div className="card-body dark:text-white">
-            <h2 className="font-bold text-center text-base md:text-xl">
+            <h2 className="font-bold text-center text-lg md:text-2xl mb-5">
               Add Your Movie Information Now
             </h2>
             <form onSubmit={handleAddBtn}>
@@ -171,7 +171,7 @@ const AddMovie = () => {
               ></textarea>
 
               <div className="form-control mt-6 mb-4">
-                <button className="btn bg-purple-500 hover:bg-purple-600 text-white">
+                <button className="btn hover:bg-dark-primary dark:hover:bg-light-primary bg-light-primary dark:bg-dark-primary text-white">
                   Add Movie
                 </button>
               </div>

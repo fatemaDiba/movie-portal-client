@@ -1,7 +1,7 @@
 const Features = () => {
   return (
-    <div className="w-10/12 mx-auto mb-20">
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-10">
+    <div className="w-10/12 mx-auto mb-28">
+      <div className="grid grid-cols-2 lg:grid-cols-4 gap-10">
         <div className="justify-items-center dark:text-white">
           <img
             className=" w-[20%] md:w-[30%] mb-5"

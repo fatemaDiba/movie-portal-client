@@ -1,23 +1,16 @@
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import { AuthContext } from "../Auth/AuthProvider";
 import { toast } from "react-toastify";
 import { MdOutlineWbSunny } from "react-icons/md";
 import { ThemeContext } from "../Auth/ThemeProvider";
 import { LuMoon } from "react-icons/lu";
+import { Tooltip } from "react-tooltip";
 
 const Header = () => {
-  const [showUserName, setShowUserName] = useState(false);
   const { user, logOutUser } = useContext(AuthContext);
   const navigate = useNavigate();
   const { theme, setTheme } = useContext(ThemeContext);
-
-  const handleShowUserName = () => {
-    setShowUserName(true);
-  };
-  const handleRemoveUserName = () => {
-    setShowUserName(false);
-  };
 
   const handleLogOutBtn = (e) => {
     e.preventDefault();
@@ -50,15 +43,18 @@ const Header = () => {
         </li>
       )}
       <li>
+        <NavLink to="/about">About Us</NavLink>
+      </li>
+      <li>
         <NavLink to="/reviews">Reviews</NavLink>
       </li>
     </>
   );
 
   return (
-    <div>
-      <div className="container mx-auto md:w-11/12 py-5">
-        <div className="navbar bg-base-100">
+    <div className="fixed z-50 w-full drop-shadow-xl top-0 bg-light-background/80 dark:bg-dark-background/70 py-2">
+      <div className="">
+        <div className="navbar w-10/12 mx-auto">
           <div className="navbar-start">
             <div className="dropdown">
               <div
@@ -88,7 +84,15 @@ const Header = () => {
                 {navList}
               </ul>
             </div>
-            <a className="text-xl dark:text-white md:text-2xl font-bold ml-3">
+            <a
+              href="/"
+              className="text-xl flex items-center dark:text-white md:text-2xl font-bold"
+            >
+              <img
+                src="/assets/logo.png"
+                alt=""
+                className="md:w-12 w-10 mr-2"
+              />
               MOVIE PORTAL
             </a>
           </div>
@@ -99,56 +103,7 @@ const Header = () => {
           </div>
 
           <div className="navbar-end">
-            {user && (
-              <div className="flex gap-4 ">
-                <div
-                  className={` text-sm dark:text-white ${
-                    showUserName ? "block" : "hidden"
-                  }`}
-                >
-                  {user?.displayName}
-                </div>
-                <div
-                  onMouseEnter={handleShowUserName}
-                  onMouseLeave={handleRemoveUserName}
-                  tabIndex={0}
-                  role="button"
-                  className="btn btn-ghost dark:border-white/70 btn-circle avatar"
-                >
-                  <div className="w-10 rounded-full relative">
-                    <img
-                      alt="Tailwind CSS Navbar component"
-                      src={user?.photoURL}
-                    />
-                  </div>
-                </div>
-              </div>
-            )}
-
-            {user ? (
-              <button
-                onClick={handleLogOutBtn}
-                className="btn bg-slate-200 dark:text-black hover:bg-slate-400 ml-3"
-              >
-                Log Out
-              </button>
-            ) : (
-              <div>
-                <Link
-                  to="/login"
-                  className="btn bg-slate-200 dark:text-black hover:bg-slate-400 ml-3"
-                >
-                  LogIn
-                </Link>
-                <Link
-                  to="/register"
-                  className="btn bg-slate-200 dark:text-black hover:bg-slate-400 ml-3"
-                >
-                  Register
-                </Link>
-              </div>
-            )}
-            <div className="text-2xl ml-3 cursor-pointer">
+            <div className="text-2xl mr-3 cursor-pointer hover:scale-105 transition-transform duration-400 ">
               {theme === "light" ? (
                 <LuMoon onClick={() => setTheme("dark")} />
               ) : (
@@ -158,6 +113,55 @@ const Header = () => {
                 />
               )}
             </div>
+            {user ? (
+              <div className="flex gap-4 ">
+                <Tooltip
+                  anchorSelect="#profile-pic"
+                  place="bottom"
+                  className="!p-2 !rounded-lg !bg-gray-700 !text-white !h-24"
+                  clickable
+                >
+                  <div className="flex flex-col justify-center items-center space-y-2 py-2">
+                    <p className="font-bold text-md">{user?.displayName}</p>
+                    <button
+                      onClick={handleLogOutBtn}
+                      className="px-4 py-2 text-white font-semibold rounded-lg hover:bg-slate-500 bg-light-primary"
+                    >
+                      Logout
+                    </button>
+                  </div>
+                </Tooltip>
+
+                <div
+                  tabIndex={0}
+                  role="button"
+                  id="profile-pic"
+                  className="btn btn-ghost dark:border-white/70 btn-circle avatar"
+                >
+                  <div className="md:w-10 w-8 rounded-full relative">
+                    <img
+                      alt="Tailwind CSS Navbar component"
+                      src={user?.photoURL}
+                    />
+                  </div>
+                </div>
+              </div>
+            ) : (
+              <div>
+                <Link
+                  to="/login"
+                  className="bg-slate-200 text-sm px-4 py-2 rounded-md font-semibold dark:text-black hover:bg-slate-400 ml-3"
+                >
+                  LogIn
+                </Link>
+                <Link
+                  to="/register"
+                  className="bg-slate-200 text-sm px-4 py-2 rounded-md font-semibold dark:text-black hover:bg-slate-400 ml-3"
+                >
+                  Register
+                </Link>
+              </div>
+            )}
           </div>
         </div>
       </div>
